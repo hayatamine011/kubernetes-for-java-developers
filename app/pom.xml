@@ -11,11 +11,10 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.5.RELEASE</version>
     </parent>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
+       <!-- <maven.compiler.target>1.8</maven.compiler.target>
+       <maven.compiler.source>1.8</maven.compiler.source> -->
         <docker.repo>arungupta</docker.repo>
         <docker.tag>latest</docker.tag>
         <docker.registry>registry.hub.docker.com</docker.registry>
