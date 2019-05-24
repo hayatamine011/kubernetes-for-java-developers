@@ -22,6 +22,7 @@ pipeline {
     stage("build") {
        steps {
             node("hh") {
+              checkout scm
             sh  'docker image build  -t hayat/greeting:jre-slim .'
              
                           //withSonarQubeEnv('sonarServer') {
