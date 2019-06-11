@@ -4,13 +4,6 @@ spec:
   hostNetwork: true
   dnsPolicy: ClusterFirstWithHostNet
   containers:
-  - name: docker
-    image: docker:stable
-    command: ["cat"]
-    tty: true
-    volumeMounts:
-    - mountPath: /var/run/docker.sock
-      name: docker-socket
   - name: helm
     image: vfarcic/helm:2.9.1
     command: ["cat"]
@@ -23,8 +16,4 @@ spec:
     image: golang:1.9
     command: ["cat"]
     tty: true
-  volumes:
-  - name: docker-socket
-    hostPath:
-      path: /var/run/docker.sock
-      type: Socket
+
