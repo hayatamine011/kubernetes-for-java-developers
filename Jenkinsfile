@@ -22,7 +22,7 @@ pipeline {
     stage("build") {
        steps {
             node("cen") {
-             sh ' git clone git@github.com:hayatamine011/kubernetes-for-java-developers.git.'
+             //sh ' git clone git@github.com:hayatamine011/kubernetes-for-java-developers.git.'
             sh  'whoami; docker image build  -t hayat/greeting:jre-slim .'
              
                           //withSonarQubeEnv('sonarServer') {
