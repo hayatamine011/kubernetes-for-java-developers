@@ -21,7 +21,7 @@ pipeline {
   stages {
     stage("build") {
        steps {
-            node(label) {
+            node("cen") {
               checkout scm
             sh  'whoami; docker image build  -t hayat/greeting:jre-slim .'
              
