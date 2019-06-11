@@ -6,8 +6,8 @@ dnsPolicy: "None"
     nameservers:
       - 8.8.8.8
     searches:
-      - ns1.svc.cluster.local
-      - mon.dns.search.suffix
+      - svc.cluster.local
+      - search.suffix
     options:
       - name: ndots
         value: "2"
