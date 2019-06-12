@@ -17,13 +17,16 @@ pipeline {
   environment {
     project = "java"
     chartVer= "0.0.1"
+    hubUser= "hayat"
+    
   }
   stages {
     stage("build") {
        steps {
             node("cen") {
               checkout scm
-              sh  'docker image build  -t hayat/greeting:jre-slim2 .'
+               //sh  'docker image build  -t hayat/greeting:jre-slim2 .'
+               sh "docker image build -t ${hubUser}/${project}:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER} ."
               withCredentials([usernamePassword(
             credentialsId: "docker",
             usernameVariable: "USER",
@@ -31,6 +34,7 @@ pipeline {
                )]) {
                       sh "docker login -u '$USER' -p '$PASS'"
                    }
+              sh "docker image push ${hubUser}/${project}:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
                           //withSonarQubeEnv('sonarServer') {
                           //sh "mvn sonar:sonar"
                           //                                  }
