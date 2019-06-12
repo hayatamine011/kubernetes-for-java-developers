@@ -24,7 +24,13 @@ pipeline {
             node("cen") {
               checkout scm
               sh  'docker image build  -t hayat/greeting:jre-slim2 .'
-             
+              withCredentials([usernamePassword(
+            credentialsId: "docker",
+            usernameVariable: "USER",
+            passwordVariable: "PASS"
+               )]) {
+                      sh "docker login -u '$USER' -p '$PASS'"
+                   }
                           //withSonarQubeEnv('sonarServer') {
                           //sh "mvn sonar:sonar"
                           //                                  }
