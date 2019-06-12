@@ -23,8 +23,7 @@ pipeline {
        steps {
             node("cen") {
               checkout scm
-            //sh ' git clone git@github.com:hayatamine011/kubernetes-for-java-developers.git'
-            sh  ' docker image build  -t hayat/greeting:jre-slim2 .'
+              sh  'docker image build  -t hayat/greeting:jre-slim2 .'
              
                           //withSonarQubeEnv('sonarServer') {
                           //sh "mvn sonar:sonar"
