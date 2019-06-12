@@ -35,7 +35,7 @@ pipeline {
                       sh "docker login -u '$USER' -p '$PASS'"
                    }
               sh "docker image push ${hubUser}/${project}:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
-             echo((returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim())
+           (returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim();
               //echo  shortCommit
                           //withSonarQubeEnv('sonarServer') {
                           //sh "mvn sonar:sonar"
