@@ -37,8 +37,9 @@ pipeline {
               sh "docker image push ${hubUser}/${project}:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
                script {
                  shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
-                 echo  shortCommit
+                
                }
+               echo  shortCommit
                           //withSonarQubeEnv('sonarServer') {
                           //sh "mvn sonar:sonar"
                           //                                  }
