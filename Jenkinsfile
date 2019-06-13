@@ -39,7 +39,7 @@ pipeline {
                )]) {
                       sh "docker login -u '$USER' -p '$PASS'"
                    }
-              sh "docker image push ${hubUser}/${project}:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER}-${shortCommit}"
+               sh "docker image push ${hubUser}/${project}:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER}-${shortCommit}"
                
                           //withSonarQubeEnv('sonarServer') {
                           //sh "mvn sonar:sonar"
