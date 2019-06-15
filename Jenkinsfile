@@ -4,7 +4,7 @@ pipeline {
 
   options {
     buildDiscarder logRotator(numToKeepStr: '5')
-    disableConcurrentBuilds()
+    //disableConcurrentBuilds()
   }
   agent {
     kubernetes {
