@@ -16,8 +16,9 @@ From  debian:9-slim
 COPY --from=PACKAGER /opt/jre-slim /opt/jre-slim
 COPY --from=BUILD /usr/src/app/target/app.war  /opt/app.war
 
-EXPOSE 8080 5005
+EXPOSE 8080 
+#5005
 
-ENV _JAVA_OPTIONS '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005'
+#ENV _JAVA_OPTIONS '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005'
 
 CMD ["/opt/jre-slim/bin/java", "-jar", "/opt/app.war"]
